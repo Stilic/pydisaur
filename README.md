@@ -1,8 +1,6 @@
 # PyDisaur
 A fabulous Python URL Shortener who work with Discord!
 
-[Demo](https://stlix.noho.st/pydisaur)
-
 ## Install
 
 ### Self-host
