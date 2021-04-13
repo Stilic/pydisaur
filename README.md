@@ -22,8 +22,9 @@ pip3 install -r requirements.txt
 ```
 3. Create a `.env` file with this content:
 ```
-DISCORD_CLIENT_ID=ID of your Discord OAuth app
-DISCORD_CLIENT_SECRET=Secret token of your Discord OAuth
+CLIENT_ID=ID of your Discord OAuth app
+CLIENT_SECRET=Secret token of your Discord OAuth
 ROOT_URL=Real URL of your hosted instance, wihout "/" at the end
 ```
+**If you don't have created `.env`, PyDisaur will look for environnements variables instead!** (note: use the same envs than for `.env` but add `PYDISAUR_` behind every env.)
 4. For launch it, type in your terminal `python3 main.py` and go to the given address.

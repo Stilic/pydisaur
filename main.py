@@ -3,7 +3,7 @@ from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthor
 from flask import Flask, render_template, redirect, url_for, request
 import json
 from random import choice
-import os
+from os import getenv
 from tinydb import TinyDB, Query
 import shortuuid
 db = TinyDB("db.json")
@@ -16,10 +16,17 @@ app = Flask(__name__)
 app.secret_key = b"random bytes representing flask secret key"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config["DISCORD_CLIENT_ID"] = env_config["DISCORD_CLIENT_ID"]
-app.config["DISCORD_CLIENT_SECRET"] = env_config["DISCORD_CLIENT_SECRET"]
-app.config["DISCORD_REDIRECT_URI"] = env_config["ROOT_URL"] + "/callback"
-root = env_config["ROOT_URL"]
+try:
+    open(".env", r)
+except:
+    app.config["DISCORD_CLIENT_ID"] = getenv("PYDISAUR_CLIENT_ID")
+    app.config["DISCORD_CLIENT_SECRET"] = getenv("PYDISAUR_CLIENT_SECRET")
+    root = getenv("PYDISAUR_ROOT_URL")
+else:
+    app.config["DISCORD_CLIENT_ID"] = env_config["CLIENT_ID"]
+    app.config["DISCORD_CLIENT_SECRET"] = env_config["CLIENT_SECRET"]
+    root = env_config["ROOT_URL"]
+app.config["DISCORD_REDIRECT_URI"] = root + "/callback"
 discord = DiscordOAuth2Session(app)
 
 
