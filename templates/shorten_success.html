@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Shorten success!{% endblock %}
+{% block content %}
+    <h2>You have succesfully shorten your URL!</h2>
+    <a href={{ request.args["url"] }} >{{ request.args["url"] }}</a>
+    <br />
+    <br />
+    <a href="../">Return to the dashboard</a>
+{% endblock %}

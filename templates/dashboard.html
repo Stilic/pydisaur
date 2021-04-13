@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h2>Welcome back, {{ user.name }}!</h2>
+    <h3>Shorten a URL</h3>
+    <form method="post" action="../api/shorten">
+        <input type="text" name="url" />
+    </form>
+    <p>(Press enter for submit)</p>
+    <button onclick="document.location='urls'">Manage your URLs shortens</button>
+    <button onclick="document.location='../logout'">Log out</button>
+{% endblock %}
