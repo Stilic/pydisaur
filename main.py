@@ -3,7 +3,7 @@ from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthor
 from flask import Flask, render_template, redirect, url_for, request
 import json
 from random import choice
-from os import getenv
+from os import environ
 from tinydb import TinyDB, Query
 import shortuuid
 db = TinyDB("db.json")
@@ -14,14 +14,14 @@ env_config = dotenv_values(".env")
 app = Flask(__name__)
 
 app.secret_key = b"random bytes representing flask secret key"
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
+environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 try:
     open(".env", r)
 except:
-    app.config["DISCORD_CLIENT_ID"] = getenv("PYDISAUR_CLIENT_ID")
-    app.config["DISCORD_CLIENT_SECRET"] = getenv("PYDISAUR_CLIENT_SECRET")
-    root = getenv("PYDISAUR_ROOT_URL")
+    app.config["DISCORD_CLIENT_ID"] = environ["PYDISAUR_CLIENT_ID"]
+    app.config["DISCORD_CLIENT_SECRET"] = environ["PYDISAUR_CLIENT_SECRET"]
+    root = environ["PYDISAUR_ROOT_URL"]
 else:
     app.config["DISCORD_CLIENT_ID"] = env_config["CLIENT_ID"]
     app.config["DISCORD_CLIENT_SECRET"] = env_config["CLIENT_SECRET"]
