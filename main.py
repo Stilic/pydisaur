@@ -1,9 +1,9 @@
 from dotenv import dotenv_values
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
 from flask import Flask, render_template, redirect, url_for, request
-import json
 from random import choice
 from os import environ
+from sys import argv
 from tinydb import TinyDB, Query
 import shortuuid
 db = TinyDB("db.json")
@@ -120,4 +120,4 @@ def shorten_manager(id):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=argv[0])
