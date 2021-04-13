@@ -120,4 +120,4 @@ def shorten_manager(id):
 
 
 if __name__ == "__main__":
-    app.run(port=argv[0])
+    app.run(port=argv[1])
