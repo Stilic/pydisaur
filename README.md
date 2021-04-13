@@ -4,14 +4,14 @@ A fabulous Python URL Shortener who work with Discord!
 ## Install
 
 ### Self-host
-#### Discord steps:
+#### Discord steps
 1. Go to [Discord Developpers site](https://discord.com/developers/applications).
 2. Create an new app.
 3. Go to OAuth section.
 4. Add in Redirects section the callback URL (root URL + /callback)
 5. Grab Client ID and Client Secret.
 
-#### Terminal steps:
+#### Terminal steps
 1. Launch a terminal.
 2. Type these commands (thats assumes you have Python 3 and PIP installed):
 ```
