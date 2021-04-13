@@ -27,4 +27,5 @@ CLIENT_SECRET=Secret token of your Discord OAuth
 ROOT_URL=Real URL of your hosted instance, wihout "/" at the end
 ```
 **If you don't have created `.env`, PyDisaur will look for environnements variables instead!** (note: use the same envs than for `.env` but add `PYDISAUR_` behind every env.)
+
 4. For launch it, type in your terminal `python3 main.py` and go to the given address.
