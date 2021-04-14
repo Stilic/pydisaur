@@ -13,7 +13,6 @@ env_config = dotenv_values(".env")
 app = Flask(__name__)
 
 app.secret_key = b"random bytes representing flask secret key"
-environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 try:
     app.config["DISCORD_CLIENT_ID"] = environ["PYDISAUR_CLIENT_ID"]
