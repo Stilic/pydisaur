@@ -122,4 +122,8 @@ if __name__ == "__main__":
         p = int(argv[1])
     except:
         p = 5000
-    app.run(host=root, port=p)
+    try:
+        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = argv[2]
+    except:
+        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
+    app.run(port=p)
