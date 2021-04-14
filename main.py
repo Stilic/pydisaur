@@ -123,7 +123,7 @@ if __name__ == "__main__":
     except:
         p = 5000
     try:
-        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = argv[2]
+        environ["OAUTHLIB_INSECURE_TRANSPORT"] = argv[2]
     except:
-        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
+        environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
     app.run(port=p)
