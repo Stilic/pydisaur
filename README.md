@@ -29,4 +29,7 @@ ROOT_URL=Real URL of your hosted instance, wihout "/" at the end
 ```
 **If you don't have created `.env`, PyDisaur will look for environnements variables instead!** (note: use the same envs than for `.env` but add `PYDISAUR_` behind every env.)
 
-4. For launch it, type in your terminal `python3 main.py [PORT or leave empty for port 5000] [true or false if you app use http or no]` and go to the given address.
+4. For launch it, type in your terminal `python3 main.py [PORT or leave empty for port 5000] [true or false if your app use http or no]` and go to the given address.
+
+## License
+This application is licensed as [MIT License](./LICENSE).
