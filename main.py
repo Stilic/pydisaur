@@ -119,4 +119,8 @@ def shorten_manager(id):
 
 
 if __name__ == "__main__":
-    app.run(port=argv[1])
+    try:
+        p = int(argv[1])
+    except:
+        p = 5000
+    app.run(port=p)
