@@ -94,7 +94,7 @@ def shorten_success():
 def urls():
     r = Query()
     user = discord.fetch_user()
-    return render_template("urls.html", l=dbsearch(r.creator.id == user.id))
+    return render_template("urls.html", l=db.search(r.creator.id == user.id))
 
 
 @app.route("/api/deleteShorten/")
