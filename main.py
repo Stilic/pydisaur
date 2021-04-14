@@ -1,7 +1,6 @@
 from dotenv import dotenv_values
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
 from flask import Flask, render_template, redirect, url_for, request
-from random import choice
 from os import environ
 from sys import argv
 from tinydb import TinyDB, Query
@@ -95,7 +94,9 @@ def shorten_success():
 @app.route("/dashboard/urls/")
 @requires_authorization
 def urls():
-    return render_template("urls.html", l=db.all())
+    r = Query()
+    user = discord.fetch_user()
+    return render_template("urls.html", l=dbsearch(r.creator.id == user.id))
 
 
 @app.route("/api/deleteShorten/")
