@@ -122,4 +122,4 @@ if __name__ == "__main__":
         p = int(argv[1])
     except:
         p = 5000
-    app.run(port=p)
+    app.run(host=root, port=p)
