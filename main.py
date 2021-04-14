@@ -16,12 +16,10 @@ app.secret_key = b"random bytes representing flask secret key"
 environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 try:
-    open(".env", r)
-except:
     app.config["DISCORD_CLIENT_ID"] = environ["PYDISAUR_CLIENT_ID"]
     app.config["DISCORD_CLIENT_SECRET"] = environ["PYDISAUR_CLIENT_SECRET"]
     root = environ["PYDISAUR_ROOT_URL"]
-else:
+except:
     app.config["DISCORD_CLIENT_ID"] = env_config["CLIENT_ID"]
     app.config["DISCORD_CLIENT_SECRET"] = env_config["CLIENT_SECRET"]
     root = env_config["ROOT_URL"]
