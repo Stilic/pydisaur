@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from os import environ
 from sys import argv
 from tinydb import TinyDB, Query
+from urllib.parse import urlparse
 import shortuuid
 db = TinyDB("db.json")
 
@@ -65,6 +66,8 @@ def logout():
 def dashboard():
     return render_template("dashboard.html", user=discord.fetch_user())
 
+def is_http_or_https(url):
+    return urlparse(url).scheme in {'http', 'https'}
 
 @app.route("/api/shorten/", methods=['POST'])
 @requires_authorization
@@ -75,7 +78,7 @@ def api_shorten():
     d["id"] = genid()
     d["shortened_url"] = root + "/u/" + d["id"]
     urlf = r["url"]
-    if not urlf.startswith("http://") or urlf.startswith("https://"):
+    if not is_http_or_https(urlf):
         urlf = "http://" + urlf
     d["original_url"] = urlf
     d["creator_id"] = user.id
