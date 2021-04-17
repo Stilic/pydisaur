@@ -1,0 +1,5 @@
+tinydb
+Flask
+Flask-Discord
+python-dotenv
+shortuuid
