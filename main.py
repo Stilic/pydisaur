@@ -28,7 +28,7 @@ discord = DiscordOAuth2Session(app)
 
 
 def genid():
-    return shortuuid.uuid(name=root)
+    return shortuuid.uuid()
 
 
 @app.route("/static/<path:path>/")
