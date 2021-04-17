@@ -75,8 +75,11 @@ def api_shorten():
     d["id"] = genid()
     d["shortened_url"] = root + "/u/" + d["id"]
     urlf = r["url"]
-    if not urlf.startswith("http://") or urlf.startswith("https://"):
+    if not urlf.startswith("http://"):
         urlf = "http://" + urlf
+    else:
+        if not urlf.startswith("https://"):
+            urlf = "http://" + urlf
     d["original_url"] = urlf
     d["creator_id"] = user.id
     db.insert(d)
