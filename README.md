@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PyDisaur demo
 Official demo for Pydisaur, the fabulous Python URL Shortener who work with Discord!
 =======
@@ -35,6 +34,9 @@ ROOT_URL=Real URL of your hosted instance, wihout "/" at the end
 
 4. For launch it, type in your terminal `python3 main.py [PORT (by default, it is port 5000)] [true or false if your app use http or no (by default, it is true)]` and go to the given address.
 
+### Deploy with Glitch
+You can also deploy PyDisaur in a Glitch project:
+
+
 ## License
 This application is licensed as [MIT License](./LICENSE).
->>>>>>> 40287c720fe8f6eb314432820b4283a1abb68702

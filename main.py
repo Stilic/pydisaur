@@ -5,7 +5,8 @@ from os import environ
 from sys import argv
 from tinydb import TinyDB, Query
 from urllib.parse import urlparse
-import shortuuid
+from hashids import Hashids
+from datetime import datetime
 db = TinyDB("db.json")
 
 
@@ -28,8 +29,9 @@ discord = DiscordOAuth2Session(app)
 
 
 def genid():
-    return shortuuid.uuid()
-
+    hashids = Hashids(salt = "lorem ipsum dolor sit amet", alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
+    return hashids.encode(int(datetime.today().timestamp()))
+  
 
 @app.route("/static/<path:path>/")
 def static_dir(path):
@@ -76,7 +78,7 @@ def api_shorten():
     user = discord.fetch_user()
     d = {}
     d["id"] = genid()
-    d["shortened_url"] = root + "/u/" + d["id"]
+    d["shortened_url"] = root + "/" + d["id"]
     urlf = r["url"]
     if not is_http_or_https(urlf):
         urlf = "http://" + urlf
@@ -114,7 +116,7 @@ def api_deleteShorten():
         return redirect(root + "/dashboard/urls", code=302)
 
 
-@app.route('/u/<id>/')
+@app.route('/<id>/')
 def shorten_manager(id):
     r = Query()
     return redirect(db.get(r.id == id)["original_url"], code=302)
