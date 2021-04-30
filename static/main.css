@@ -1,28 +1,30 @@
 html {
-    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
     "Helvetica Neue", sans-serif;
 }
 
 body {
-    background-color: darkslategray;
+  background-color: darkslategray;
 }
 
 .main {
-    color: white;
-    margin: 0 auto;
-    max-width: 700px;
-    text-align: center;
+  color: white;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
 }
 
-form {
-    display: inline-block;
-}
-
-input {
-    display: inline-block;
+input, button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 br {
-    user-select: none;
+  user-select: none;
+}
+
+textarea:hover {
+  cursor: text;
 }
