@@ -2,23 +2,20 @@
 {% block title %}Shorten success!{% endblock %}
 {% block content %}
     <h2>You have succesfully shorten your URL!</h2>
-    <div class="center">
-      <input type="text" id="copyTxt" value={{ request.args["url"] }} />
-    </div>
-    <br/>
-    <br/>
+    <input disabled type="text" value={{ request.args["url"] }} id="copyTxt" />
     <button onclick="copy()">
       Copy
     </button>
     <script>
     function copy() {
       var copyText = document.getElementById("copyTxt");
+      copyText.disabled = !copyText.disabled;
       copyText.select();
       copyText.setSelectionRange(0, 99999)
       document.execCommand("copy");
+      copyText.disabled = !copyText.disabled;
     }
     </script>
-    <br />
     <br />
     <a href="../">Return to the dashboard</a>
 {% endblock %}
