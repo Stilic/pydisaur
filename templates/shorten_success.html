@@ -2,10 +2,22 @@
 {% block title %}Shorten success!{% endblock %}
 {% block content %}
     <h2>You have succesfully shorten your URL!</h2>
-    <textarea disabled href={{ request.args["url"] }} id="copyTxt">{{ request.args["url"] }}</textarea>
-    <button onclick="copy('copyTxt')">
+    <div class="center">
+      <input type="text" id="copyTxt" value={{ request.args["url"] }} />
+    </div>
+    <br/>
+    <br/>
+    <button onclick="copy()">
       Copy
     </button>
+    <script>
+    function copy() {
+      var copyText = document.getElementById("copyTxt");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    }
+    </script>
     <br />
     <br />
     <a href="../">Return to the dashboard</a>

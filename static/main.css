@@ -15,12 +15,8 @@ body {
     text-align: center;
 }
 
-form {
-    display: inline-block;
-}
-
-input {
-    display: inline-block;
+.center input {
+    text-align: center;
 }
 
 br {
