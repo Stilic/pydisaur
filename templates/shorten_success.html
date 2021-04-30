@@ -2,7 +2,10 @@
 {% block title %}Shorten success!{% endblock %}
 {% block content %}
     <h2>You have succesfully shorten your URL!</h2>
-    <a href={{ request.args["url"] }} >{{ request.args["url"] }}</a>
+    <textarea disabled href={{ request.args["url"] }} id="copyTxt">{{ request.args["url"] }}</textarea>
+    <button onclick="copy('copyTxt')">
+      Copy
+    </button>
     <br />
     <br />
     <a href="../">Return to the dashboard</a>

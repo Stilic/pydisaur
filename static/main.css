@@ -26,3 +26,7 @@ input {
 br {
     user-select: none;
 }
+
+textarea:hover {
+  cursor: text;
+}
