@@ -32,7 +32,12 @@ def genid():
     hashids = Hashids(salt = "lorem ipsum dolor sit amet", alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
     return hashids.encode(int(datetime.today().timestamp()))
   
-
+    
+@app.context_processor
+def inject_root_url():
+    return dict(url=env_config["ROOT_URL"])
+    
+    
 @app.route("/static/<path:path>/")
 def static_dir(path):
     return send_from_directory("static", path)
