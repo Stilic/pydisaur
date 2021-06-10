@@ -35,7 +35,7 @@ def genid():
     
 @app.context_processor
 def inject_root_url():
-    return dict(url=env_config["ROOT_URL"])
+    return dict(root=env_config["ROOT_URL"])
     
     
 @app.route("/static/<path:path>/")
