@@ -7,15 +7,15 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href={{url_for('static', filename='discord.css')}} />
-    <link rel="stylesheet" href={{url_for('static', filename='main.css')}} />
+    <link rel="stylesheet" href={{root + url_for('static', filename='discord.css')}} />
+    <link rel="stylesheet" href={{root + url_for('static', filename='main.css')}} />
   </head>
 
   <body>
     <div class="main">
         <h1 style="font-size: 70px;">PyDisaur</h1>
         <nav>
-          <a href="../../../">Home</a> - <a href="../../../dashboard">Dashboard</a>
+          <a href={{root}}>Home</a> - <a href="{{root}}/dashboard">Dashboard</a>
         </nav>
         {% block content %} {% endblock %}
     </div>
