@@ -13,7 +13,7 @@
                 <tr>
                     <td><a href={{ i.original_url }}>{{ i.original_url }}</a></td>
                     <td><a href={{ i.shortened_url }}>{{ i.shortened_url }}</a></td>
-                    <td><a href={{ '../../api/deleteShorten?id=' + i.id }}>Delete</a></td>
+                    <td><a href={{ root + '/api/deleteShorten?id=' + i.id }}>Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>
