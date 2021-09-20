@@ -46,4 +46,4 @@ You can also deploy PyDisaur in a Glitch project:
 
 ## License
 
-This application is licensed as [MIT License](./LICENSE).
+This application is licensed under the [MIT License](./LICENSE).
